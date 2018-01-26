@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+html {
+    font-family: "Roboto Mono" ,courier;
+    font-size: 104%;
+}
+
+table {
+    margin-left: -2%;
+}
+
+table, th, td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: center
+}
+
+td {
+    overflow: hidden;
+}
+
+table thead > tr:nth-of-type(1) > th {
+    font-size: 1.5em;
+}
+
+#post, button.delete {
+    float: right;
+    border: 1px solid #000;
+    padding: 5px;
+    outline: none;
+    height: 45px;
+    width: 100px;
+    transition: all 0.3s ease-in-out;
+}
+
+#post:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+button.delete:hover {
+    background-color: red;
+    border: 1px solid red;
+    color: #fff;
+}
+
+.delete {
+    transform: translateX(130px);
+}
+
+input[type="text"], input[type="date"] {
+    font-family: "Roboto Mono", courier;
+    font-size: 100%;
+    outline: none;
+    border: 0;
+}
+
+#task, #hours, #date {
+    height: 60px;
+}
+
+#task {
+    width: 500px;
+}
+
+#hours {
+    width: 50px;
+}
+
+#date {
+    width: 190px;
+}
+
+.task-data:hover .delete {
+    transform: translateX(0);
+} 
+
