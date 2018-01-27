@@ -74,7 +74,7 @@ input[type="text"], input[type="date"] {
     width: 190px;
 }
 
-.task-data:hover .delete {
+.task-row.active .delete {
     transform: translateX(0);
 } 
 

@@ -23,8 +23,9 @@
     })
 
     table.addEventListener("click", (e) => {
-        if (e.target.className === "delete") {
-            console.log(e.target.parentNode.parentNode.id)
+        if (e.target.className === "task-row" || e.target.className === "task-row active") {
+            e.target.classList.toggle("active")
+        } else if (e.target.className === "delete") {
             delete_data(e.target.parentNode.parentNode.id)
         }
     })
@@ -38,7 +39,6 @@
         http.onreadystatechange = () => {
             if (http.readyState === 4 && http.status === 201) {
                 var item = JSON.parse(http.responseText)
-                console.log(item)
                 append_data(item)
             }
         }
@@ -57,8 +57,6 @@
             if (http.readyState === 4 && http.status === 200) {
                 var data = JSON.parse(http.responseText)
 
-                console.log(data)
-
                 data.forEach(append_data)
             }
         }
@@ -71,7 +69,7 @@
         var html = `
             <td>${data.date}</td>
             <td>${data.hours}</td>
-            <td>${data.task} <button class="delete">Delete</button></td>
+            <td class="task-row">${data.task} <button class="delete">Delete</button></td>
         `,
             tr = document.createElement("tr"),
             tbody = document.querySelector("tbody");
@@ -90,15 +88,13 @@
             url = `http://localhost:3000/data/${data}`,
             el = document.getElementById(`${data}`);
 
-        console.log(url)
-
         http.open("DELETE", url , true)
         http.onreadystatechange = () => {
             if (http.readyState === 4 && http.status === 200) {
                 console.log(http.responseText)
             }
         }
-        http.send(null)
+        http.send()
 
         el.parentNode.removeChild(el)
     }
