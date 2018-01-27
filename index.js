@@ -1,22 +1,5 @@
 (function() {
-    onload = () => {
-        var http = new XMLHttpRequest(),
-            url = "http://localhost:3000/data"
-
-        http.onreadystatechange = () => {
-            if (http.readyState === 4 && http.status === 200) {
-                var data = JSON.parse(http.responseText)
-
-                console.log(data)
-
-                data.forEach(append_data)
-
-            }
-        }
-
-        http.open("GET", url)
-        http.send()
-    }
+    onload = get_data()
 
     var btn = document.getElementById("post"),
         table = document.querySelector("table");
@@ -76,7 +59,7 @@
 
                 console.log(data)
 
-                append_data(data)
+                data.forEach(append_data)
             }
         }
 

@@ -5,6 +5,12 @@
       "hours": "2",
       "task": "Setup time tracker application",
       "id": 1
+    },
+    {
+      "date": "2018-01-18",
+      "hours": "2",
+      "task": "Test",
+      "id": 2
     }
   ]
 }
